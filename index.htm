@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Live Edit</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		var EventUtil = {
+			addEvent: function(element, type, handler){
+				if (element.addEventListener){
+					element.addEventListener(type, handler, false);
+				} else if (element.attachEvent){
+					element.attachEvent("on" + type, handler);
+				} else {
+					element["on" + type] = handler;
+				}
+			},			
+			getEvent: function(event){
+				return event ? event : window.event;
+			},				
+			preventDefault: function(event){
+				if (event.preventDefault){
+					event.preventDefault();
+				} else {
+					event.returnValue = false;
+				}
+			},				
+			stopPropagation: function(event){
+				var event = EventUtil.getEvent();
+				if (event.stopPropagation){
+					event.stopPropagation();
+				} else {
+					event.cancelBubble = true;
+				}
+			}, 
+			stop: function(event){
+				var event = EventUtil.getEvent();
+				if(window.document.execCommand) {
+					window.document.execCommand('Stop');
+				} else {
+					window.stop();
+				}
+			}
+		};
+	</script>
+	<script type="text/javascript">
+		var socket = io.connect('http://localhost:8888');
+	</script>
+	<style>
+		body {
+			background-color: #eee;
+		}		
+		#wrapper {
+			margin: 50px auto;
+			background-color: #ccc;
+			width: 500px;
+			height: 170px;
+			padding-top: 2px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin: 1px solid #aaa;
+			border-radius: 50px;
+		}		
+		h2 {
+			text-align: center;
+			color: #666;
+		}		
+		p {
+			display: inline;
+			font-size: 1.1em;
+			font-weight: bold;
+		}		
+		form {
+			margin-top: 4px;
+			margin-bottom: 4px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h2>Welcome to Live Edit</h2>
+		<p>- With live edit, you can upload an image or a text document.</p> <br/>
+		<p>- Select a file below and click Load file to Upload.</p>		
+		<form action="/upload" method="POST" enctype="multipart/form-data">
+			<input type="file" multiple="multiple" name="upload" />
+			<input type="submit" value="Load file" />
+		</form>
+	</div>
+	<script type="text/javascript">
+		var upload = document.querySelector("input[type='file']");
+		var wrapper = document.getElementById("wrapper")
+		
+		var p = document.createElement("p");
+		p.innerHTML = "- Load Failed. Select the file first!";
+
+		EventUtil.addEvent(upload, "click", function(event){
+			var event = EventUtil.getEvent(event);
+			if(wrapper.children.length == 4){
+				wrapper.removeChild(wrapper.lastElementChild)
+			}
+		});		
+		
+		var handler = function(event){
+			var event = EventUtil.getEvent(event);
+			if(!upload.value){
+				EventUtil.stopPropagation(event);
+				EventUtil.preventDefault(event);
+				document.getElementById("wrapper").appendChild(p);
+				EventUtil.stop(event);
+			}
+		};
+		
+		EventUtil.addEvent(window, "submit", handler);
+	</script>
+	<script type="text/javascript"></script>
+</body>
+</html>
