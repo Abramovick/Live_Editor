@@ -1,8 +1,8 @@
 var formidable = require("formidable"), 
-	fs 		   = require("fs"),
-	io 		   = require("socket.io"),
-	path	   = "",
-	cType      = null; 
+	fs     = require("fs"),
+	io     = require("socket.io"),
+	path   = "",
+	cType  = null; 
 
 // this html will be outputed on the /upload page.
 var text = '<!DOCTYPE html><html><head><title>Live Edit</title><script type="text/javascript" src="/socket.io/socket.io.js" ></script><script type="text/javascript" >var socket = io.connect("http://localhost:8888/upload"); socket.on("message", function(data){ document.querySelector("textarea").value = data;});</script><style>	body {background-color: #eee;}	#wrapper {margin: 50px auto; background-color: #ccc; width: 600px; height: 500px; padding-top: 2px; 	padding-left: 10px; padding-right: 10px; margin: 1px solid #aaa; border-radius: 50px; text-align: center; } h2 {text-align: center;	color: #666;} p {display: inline; font-size: 1.1em; } input {padding: 5px;} .para {position:absolute; top:479px; left: 800px} </style></head><body><div id="wrapper"><h2>Welcome to Live Edit</h2>';
@@ -31,10 +31,10 @@ function upload(req, res){
 		// by default formidable puts my uploaded file in a path that hard to find, 
 		// and gives it a hashed name, therefore i should rename to a folder i want ("tmp")
 		// and leave the filename to be the same.
-		fs.renameSync(files.upload.path, "C:/tmp/" + files.upload.filename);		
+		fs.renameSync(files.upload.path, "/tmp/" + files.upload.filename);		
 
 		// this is needed for loading the files on the fs.readFile().
-		path = "C:/tmp/" + files.upload.filename;
+		path = "/tmp/" + files.upload.filename;
 		exports.readPath = path;
 		
 		// the mime type is essential, because using this, i can upload, any file with 
