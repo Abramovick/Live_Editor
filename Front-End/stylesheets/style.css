@@ -1,0 +1,30 @@
+body {
+	background-color: #eee;
+}
+
+#wrapper {
+	margin: 50px auto;
+	background-color: #ccc;
+	width: 600px;
+	height: 500px;
+	padding-top: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 1px solid #aaa;
+	border-radius: 50px;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	color: #666;
+}
+
+p {
+	display: inline;
+	font-size: 1.1em;
+}
+
+input {
+	padding: 5px;
+}

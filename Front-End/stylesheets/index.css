@@ -1,0 +1,280 @@
+* {
+	border: 0;
+	margin: 0;
+
+}
+
+body {
+	background: #eee;
+	height: 100%;
+	width: 100%;
+}
+
+/* Content wrapper */
+#wrapper {
+	margin: 0 auto;
+	width: 95%;
+	padding: 1em;
+	position: relative;
+	z-index: 1;
+}
+
+/*--------------------- Header Starts here --------------------- */
+
+/* 
+  This is where the logo, 
+  upload & save image icons reside
+*/
+#header {
+	width: 100%;
+	height: 5em;
+	padding: 0.3em;
+	margin: 0.12em auto;
+}
+
+#header ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+#header ul li {
+	float: left;
+	list-style: none;
+}
+
+/* upload icon go left */
+#header ul #leftImg {
+	margin-left: 0;
+}
+
+/* logo go center */
+#header ul #centerImg {
+	margin-left: 26em;
+}
+
+/* Save Icon go right */
+#header  ul #rightImg {
+	margin-left: 26em;
+	margin-right: 0;
+}
+
+#header ul li #imgSave:hover {		
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+#header ul li #imgUpload:hover {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+#header ul li #imgNewDoc:hover {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+/*--------------------------Header Ends here -------------------------*/
+
+
+/*--------------------------Content Starts here -----------------------*/
+
+/* Content Div start here */
+#content {
+	margin: 0 auto;
+	margin-top: 1em;
+	width: 100%;
+	height: 40em;
+}
+
+/* Content Div for the public viewable version*/
+#pubContent {
+	margin: 0 auto;
+	width: 100%;
+}
+
+/*------------------ #nav (Div nav) start here -------------------*/
+
+/* Navigations (icons) */
+#content #nav {
+	border: 1px solid #fff;
+	background-color: #bbb;
+	width: 100%;
+	height: 2.45em;
+}
+
+#content #nav ul {				
+	padding: 0;
+	margin: 0;
+	width: 90%;
+	height: 100%;
+	float: left;
+}
+
+#content #nav ul:last-child {				
+	padding: 0;
+	margin: 0;
+	width: 2.3em;
+	height: 100%;
+	float: right;
+}
+
+#content #nav ul li {
+	float: left;
+	list-style: none;
+	padding: 0.225em;
+	height: 2em;
+	cursor: pointer;
+}
+
+/* Set border right (for nav)*/
+.borderRight {
+	border-right: 1.5px solid #ddd;
+}
+
+/* Remove border right of last elem
+#content #nav ul li:last-child {
+	border-right: 0px;
+	margin-left: 9.5em;
+}
+*/
+
+/* Code for fontStyle */
+#content #nav ul li select#fontStyle {
+	width: 6em;
+	height: 1.8em;
+	border: 1px solid #aaa;
+	margin-top: 0.35em;
+}
+
+/* Code for fontSize */
+#content #nav ul li select#fontSize {
+	width: 3em;
+	height: 1.8em;
+	border: 1px solid #aaa;
+	margin-top: 0.35em;
+}
+
+#content #nav ul li img:hover {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	border: 1.5px solid #fff;
+	background-color: #eee;
+}
+/*--------------#nav (div nav) ends here ---------------*/
+
+
+
+/*-----------------#edit (Div edit) Starts here ----------*/
+#content #edit {
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	background-color: #ddd;
+	border: 1px solid #fff;
+}
+
+/* public version of the Textarea*/
+.pubTextArea {
+	display: block;
+	width: 98%;
+	height: 100%;
+	margin: 0 auto;
+	border: 2px solid #fff;
+	background-color: #fff;
+	padding: 1em;
+	font-size: 1em;
+	font-family: Arial;
+	resize: none;
+	overflow: auto;
+	outline: none;
+	line-height: normal;
+}
+/*---------------#edit (Div edit) ends here ---------------*/
+/*------------------Content Ends here------------------------*/
+
+
+
+
+/*-----------------footer starts here--------------------------*/
+#footer {
+	margin: 0 auto;
+	margin-top: 5em;
+	width: 100%;
+	height: 2em;
+	text-align: center;
+}
+
+#footer a, #footer a:visited, #footer a:active, #footer a:link {
+	text-decoration: none;
+	color: blue;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer label {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+/*-----------------footer Ends here--------------------------*/
+
+
+
+
+/*--------- Classes used on javascript --------------*/
+.expandTextArea {
+	display: block;
+	margin-top : 0;
+	width : 100%;
+	height : 100%;
+	padding : 0;
+	font-size: 1em;
+	font-family: 'Courier New';
+	background-color: #fff;
+	margin: 0 auto;
+	resize: none;
+	overflow: auto;
+	outline: none;
+}
+
+.setTextArea {
+	display: block;
+	width: 85%;
+	height: 80%;
+	margin: 0 auto;
+	margin-top: 1.9em;
+	border: 2px solid #fff;
+	background-color: #fff;
+	padding: 2em;
+	padding-left: 3.2em;
+	font-size: 1em;
+	font-family: Arial;
+	resize: none;
+	overflow: auto;
+	outline: none;
+	line-height: normal;
+}
+
+.clicked {		
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	border: 1.5px solid #fff;
+	background-color: #eee;
+}
+
+.table {					
+	border: 1px solid #888; 
+	border-collapse: collapse; 
+}
+
+.tableTD {
+	width: 50px; 
+	height: 50px; 
+	text-align: center; 
+	vertical-align: middle;
+	border: 1px solid #888
+}
